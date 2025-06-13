@@ -1,0 +1,42 @@
+@startuml FluxUI Generation Process
+!theme plain
+title FluxUI: GAN-Inspired UI Generation Process
+
+actor User
+participant "FluxUI\nOrchestrator" as FluxUI
+participant "Pattern Repository\n(Vector Search)" as PatternRepo
+participant "Generator LLM" as Generator
+participant "Adversary LLM\n(Multi-modal Evaluator)" as Adversary
+
+User -> FluxUI: Submit UI element prompt\n"Create a modern login form"
+
+FluxUI -> PatternRepo: Search for similar UI patterns\nvector_search(prompt)
+
+PatternRepo -> FluxUI: Return matching examples\n[login_forms, auth_patterns, ...]
+
+loop Quality Improvement Loop
+    FluxUI -> Generator: Generate UI variants\n(prompt + examples + context)
+    
+    Generator -> FluxUI: Return multiple UI variants\n[variant_1, variant_2, variant_3, ...]
+    
+    FluxUI -> Adversary: Evaluate variants (multi-modal)\nAssess: cognitive load, aesthetics,\nvisual simplicity, usability
+    
+    Adversary -> FluxUI: Return evaluation scores\n[{variant_1: 0.7}, {variant_2: 0.9}, {variant_3: 0.6}]
+    
+    FluxUI -> FluxUI: Check quality threshold\n(threshold: 0.8)
+    
+    alt Quality threshold met
+        FluxUI -> User: Return best variant\n(HTML/CSS/JS code)
+    else Quality threshold not met
+        note right of FluxUI: Loop back with feedback\nfor improved generation
+    end
+end
+
+note over User, Adversary
+    The system uses adversarial training principles:
+    - Generator creates UI code
+    - Adversary evaluates quality
+    - Iterative improvement until threshold is met
+end note
+
+@enduml 

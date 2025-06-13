@@ -1,0 +1,30 @@
+{
+  "name": "fluxui",
+  "version": "1.0.0",
+  "description": "A novel approach to UI generation using Generative Adversarial Networks (GANs) with Large Language Models (LLMs).",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "type-check": "turbo type-check",
+    "clean": "turbo clean"
+  },
+  "keywords": [
+    "ui-generation",
+    "gan",
+    "llm",
+    "nextjs",
+    "ai"
+  ],
+  "author": "@andrewhopper",
+  "license": "MIT",
+  "devDependencies": {
+    "turbo": "^2.5.4"
+  },
+  "packageManager": "npm@10.0.0"
+}
