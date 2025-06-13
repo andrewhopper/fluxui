@@ -14,7 +14,7 @@ FluxUI implements a GAN-inspired architecture where two LLMs work in opposition 
 - **Generator (LLM 1)**: Creates UI code based on user intent and similar patterns
 - **Adversary (LLM 2)**: Acts as a quality judge, evaluating the generated UI
 
-![FluxUI Architecture]([fluxui.png](https://github.com/andrewhopper/fluxui/blob/main/%20fluxui.png))
+![FluxUI Architecture](fluxui.png)
 
 ## Architecture Flow
 
